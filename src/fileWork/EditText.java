@@ -40,6 +40,14 @@ public class EditText {
     }
     private static boolean endOfString(StringBuilder str, int index) {
         if (index < str.length() && str.charAt(index) == '"') {
+            if(str.charAt(index - 1) == '\\')
+            {
+                if(str.charAt(index - 2) == '\\')
+                {
+                    return true;
+                }
+                return false;
+            }
             return true;
         }
         return false;
